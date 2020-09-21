@@ -1,0 +1,18 @@
+type Query{
+    job(id: ID!): Job
+    jobs: [Job]
+}
+
+type Company{
+    id: ID! 
+    name: String @fake(type: companyName)
+    description: String @examples(values: ["IT Trending", "Manufacturing Blahblah", "Medicine for corona", "Media for destruction"])
+}
+
+type Job{
+    id: ID! @examples(values: [1,2,3,4])
+    title: String @examples(values: ["Design destroyer", "Spreadsheet folk", "The copy lad", "Random news generator"])
+    company: Company
+    description: String @examples(values: ["Stupid IT lad", "Can Spread corona", "Copy paster", "Spread fake news"])
+}
+

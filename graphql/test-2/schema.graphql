@@ -1,0 +1,23 @@
+type Query{
+    job(id: ID!): RandomThings
+    randomThings: [RandomThings]
+}
+
+type RandomCompany{
+    id: ID! 
+    companyName: String @fake(type: companyName)
+    description: String @examples(values: ["Random IT Trending", "Random Manufacturing Blahblah", "Random Medicine for corona", "Random Media for destruction"])
+}
+
+type RandomThings{
+    id: ID! @examples(values: [1,2,3,4])
+    title: String @examples(values: ["Random Design destroyer", "Random Spreadsheet folk", "Random The copy lad", "Random news generator"])
+    randomCompany: RandomCompany
+    randomDescription: String @examples(values: ["Random Stupid IT lad", "Random Can Spread corona", "Random Copy paster", "Random Spread fake news"])
+}
+
+
+type Mutation{
+   addStudent_returns_object(collegeId:ID,firstName:String,lastName:String):RandomCompany
+}
+
